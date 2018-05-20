@@ -1,0 +1,13 @@
+{%extends "layout.html"%}
+{% load static %}
+{% block title %} Borrower Info {% endblock %}
+{%block content%}
+<div class="about">
+
+    <h1>{{ borrower.last_name }}, {{borrower.first_name }}</h1>
+    <p>Email: {{ borrower.email }}</p>
+    <p>Card Number: {{ borrower.cardnumber }}</p>
+    <p>Joined: {{ borrower.dateJoined }}</p>
+    <p>Organization: {{ borrower.memberOf }}</p>
+</div>
+{%endblock%}

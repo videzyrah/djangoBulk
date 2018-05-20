@@ -1,0 +1,26 @@
+{%extends "layout.html"%}
+{% load static %}
+{% block title %}Checked Out Items{% endblock %}
+{%block logo%}Checked Out and Overdue Items{%endblock%}
+{%block content%}
+<div class="container">
+    <h2>Checked Out</h2>
+    {% for item in checkedOut %}
+
+        <li><a href ="{% url 'item' item.id %}">{{ item.writtenId }} {{item.name }}</a> |
+          <b>Checked out to: </b>{{item.checked_Out_To}} | <b>Due:</b> {{item.due_Back}}</li>
+
+    {% endfor %}
+
+    <h2>OVERDUE</h2>
+    {% for item in overdue %}
+    <li><a href ="{% url 'item' item.id %}">{{ item.writtenId }} {{item.name }}</a> |
+      <b>Checked out to: </b>{{item.checked_Out_To}} | <b>Overdue since:</b> {{item.due_Back}}</li>
+
+      <!--<a href ="/shareShack/item/{{ item.id }}/">
+        <li>{{ item.writtenId }} {{item.name }} Checked out to: {{item.checked_Out_To}} Overdue since: {{item.due_Back}}</li>
+      </a>-->
+    {% endfor %}
+
+</div>
+{%endblock%}

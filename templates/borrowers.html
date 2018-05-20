@@ -1,0 +1,15 @@
+{%extends "layout.html"%}
+{% load static %}
+{% block title %}Borrowers{% endblock %}
+{%block logo%}Borrowers{%endblock%}
+{%block content%}
+<div class="container">
+
+    {% for borrower in borrowers %}
+        <a href ="/shareShack/{{ borrower.id }}/">
+          <li>{{ borrower.last_name }}, {{borrower.first_name }}</li>
+        </a>
+    {% endfor %}
+
+</div>
+{%endblock%}

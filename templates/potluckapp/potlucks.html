@@ -1,0 +1,17 @@
+{%extends "layout.html"%}
+{% load static %}
+{% block title %}Potlucks{% endblock %}
+{%block logo%}Potlucks{%endblock%}
+{%block content%}
+<div class="container">
+
+    {% for potluck in potlucks %}
+
+      <a href ="/events/{{ potluck.id }}/">
+        <h2>{{ potluck.theme }} --  {{ potluck.event_date }}</h2>
+      </a>
+
+    {% endfor %}
+
+</div>
+{%endblock%}

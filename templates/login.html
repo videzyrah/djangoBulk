@@ -1,0 +1,11 @@
+{%extends "layout.html"%}
+{% load static %}
+{% block title %} Login Page{% endblock %}
+{%block content%}
+<div class="about">
+  <h1>Login Page</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+  <button type = "submit">Login</button>
+</div>
+{%endblock%}

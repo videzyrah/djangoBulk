@@ -1,0 +1,12 @@
+{%extends "layout.html"%}
+{% load static %}
+{% block title %} {{ potluck.theme }}{% endblock %}
+{%block content%}
+<div class="about">
+
+    <h1>{{ potluck.theme }}  --  {{ potluck.event_date }}</h1>
+    <h3>Hosted by: {{ potluck.host }}</h3>
+    <p> {{ potluck.details}}</p>
+
+</div>
+{%endblock%}
