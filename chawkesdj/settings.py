@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'events',
     'shareShack',
     'foodCosts',
+    'accounts',
+
 ]
 
 MIDDLEWARE = [

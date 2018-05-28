@@ -5,20 +5,25 @@
 <div class="about">
 
     <h1>{{item.writtenId}}  {{item.name }}</h1>
-      <h4>Category:</h4>
-        {{ item.department }}
-      <h4>In stock?</h4>
-        {{ item.in_Stock }}
-      <h4>Checked Out to:</h4>
-        {{ item.checked_Out_To }}
-      <h4>Due Back:</h4>
-        {{ item.due_Back }}
-      <h4>Condition:</h4>
-        {{ item.condition }}
-      <h4>Added:</h4>
-         {{ item.date_Added }}
-      <h4>Donated By:</h4>
-        {{ item.donor }}
+    <br>
+    <ul class="list-unstyled">
+    <li>
+      {% if request.user.is_authenticated %}
+      <h4>Checked Out to:</h4>  {{ item.checked_Out_To }}
+      {% endif %}
+    </li>
+    {% if request.user.is_authenticated %}
+    <a href ="{% url 'checkOut' item.id %}">Checkout or Return this item?</a>
+    {% endif %}
+    <li><h4>Due Back:</h4>{{ item.due_Back }}</li>
+    <li><h4>Condition:</h4>{{ item.condition }}</li>
+    <li><h4>Category:</h4>{{ item.department }}</li>
+    <li>
+      {% if request.user.is_authenticated %}
+      <h4>Donated By:</h4> {{ item.donor }} on {{ item.date_Added }}
+      {% endif %}
+    </li>
+    </ul>
 
 </div>
 {%endblock%}

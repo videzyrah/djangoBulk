@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.urls import path
 from django.contrib import admin
 from chawkesdj import views as cdj_views
 
@@ -24,4 +25,5 @@ urlpatterns = [
     url(r'^layout/$', cdj_views.layout),
     url(r'^about/$', cdj_views.about),
     url(r'^admin/', admin.site.urls),
+    path('accounts/', include('accounts.urls', namespace="accounts"))
 ]

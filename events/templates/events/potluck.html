@@ -1,10 +1,11 @@
-{%extends "layout.html"%}
+{%extends "events/base.html"%}
 {% load static %}
 {% block title %} {{ potluck.theme }}{% endblock %}
 {%block content%}
 <div class="about">
 
-    <h1>{{ potluck.theme }}  --  {{ potluck.event_date }}</h1>
+    <h1>{{ potluck.theme }}<h1>
+    <h2> {{ potluck.event_date|date:'l, M d, Y' }}</h2>
     <h3>Hosted by: {{ potluck.host }}</h3>
     <p> {{ potluck.details}}</p>
 

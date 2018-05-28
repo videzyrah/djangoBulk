@@ -13,7 +13,7 @@ class Organization(models.Model):
 
 class Staff(models.Model):
     staff = models.OneToOneField(User, on_delete = models.PROTECT)
-    
+
 class Borrower(models.Model):
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
@@ -49,7 +49,7 @@ class Item(models.Model):
     name = models.CharField(max_length=30)
     donor = models.CharField(max_length=30)
     date_Added = models.DateField()
-    condition = models.TextField(max_length=200, blank=True, null=True)
+    condition = models.TextField(max_length=100, blank=True, null=True)
     in_Stock = models.BooleanField(default = True)
     checked_Out_To = models.ForeignKey(Borrower, models.SET_NULL, blank=True, null=True)
     due_Back = models.DateField(blank=True, null=True)
@@ -63,6 +63,7 @@ class CheckOut(models.Model):
     borrower = models.ForeignKey(Borrower, models.SET_NULL, blank=True, null=True )
     staff = models.ForeignKey(User, on_delete = models.PROTECT)
     items = models.ManyToManyField(Item)
+    due_Back = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return "%s item#" % self.id

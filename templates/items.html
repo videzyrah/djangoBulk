@@ -7,31 +7,46 @@
     <h3>Furniture</h3>
     {% for item in furniture %}
     <li><a href ="{% url 'item' item.id %}">{{ item.writtenId }} {{item.name }}</a> |
-      <b>Checked out to: </b>{{item.checked_Out_To}} | <b>Due:</b> {{item.due_Back}}</li>
+      {% if request.user.is_authenticated %}
+      <b>Checked out to: </b>{{item.checked_Out_To}} |
+      {% endif %}
+      <b>Due:</b> {{item.due_Back}}</li>
     {% endfor %}
 
     <h3>Catering</h3>
     {% for item in catering%}
     <li><a href ="{% url 'item' item.id %}">{{ item.writtenId }} {{item.name }}</a> |
-      <b>Checked out to: </b>{{item.checked_Out_To}} | <b>Due:</b> {{item.due_Back}}</li>
+      {% if request.user.is_authenticated %}
+      <b>Checked out to: </b>{{item.checked_Out_To}} |
+      {% endif %}
+      <b>Due:</b> {{item.due_Back}}</li>
     {% endfor %}
 
     <h3>Landscaping</h3>
     {% for item in landscaping %}
     <li><a href ="{% url 'item' item.id %}">{{ item.writtenId }} {{item.name }}</a> |
-      <b>Checked out to: </b>{{item.checked_Out_To}} | <b>Due:</b> {{item.due_Back}}</li>
+      {% if request.user.is_authenticated %}
+      <b>Checked out to: </b>{{item.checked_Out_To}} |
+      {% endif %}
+      <b>Due:</b> {{item.due_Back}}</li>
     {% endfor %}
 
     <h3>Recreation</h3>
     {% for item in recreation %}
     <li><a href ="{% url 'item' item.id %}">{{ item.writtenId }} {{item.name }}</a> |
-      <b>Checked out to: </b>{{item.checked_Out_To}} | <b>Due:</b> {{item.due_Back}}</li>
+      {% if request.user.is_authenticated %}
+      <b>Checked out to: </b>{{item.checked_Out_To}} |
+      {% endif %}
+      <b>Due:</b> {{item.due_Back}}</li>
     {% endfor %}
 
     <h3>Maintenance</h3>
     {% for item in maintenance %}
     <li><a href ="{% url 'item' item.id %}">{{ item.writtenId }} {{item.name }}</a> |
-      <b>Checked out to: </b>{{item.checked_Out_To}} | <b>Due:</b> {{item.due_Back}}</li>
+      {% if request.user.is_authenticated %}
+      <b>Checked out to: </b>{{item.checked_Out_To}} |
+      {% endif %}
+      <b>Due:</b> {{item.due_Back}}</li>
     {% endfor %}
 
 </div>

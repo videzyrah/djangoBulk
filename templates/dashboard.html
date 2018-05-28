@@ -3,13 +3,15 @@
 {% block title %}Staff Dashboard{% endblock %}
 {% block logo %}ShareShack Staff Dashboard{% endblock %}
 {% block content %}
+
+
 <div class="container">
-<ul>
+<ul class="list-unstyled">
 <li><a href ="/shareShack/login">Login</a></li>
 <li><a href ="{% url 'borrowerList' %}">Full Member List</a></li>
 <li><a href ="{% url 'itemList' %}">Full Inventory List</a></li>
 <li><a href ="{% url 'checkedOutItems' %}">Checked out / Overdue</a></li>
-<li><a href ="{% url 'addDonation' %}">Add Donation</a></li>
+<li><a href ="{% url 'addDonation' %}">Add Donated Item</a></li>
 </ul>
 </div>
 {% endblock %}

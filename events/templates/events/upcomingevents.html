@@ -1,0 +1,25 @@
+{%extends "events/base.html"%}
+{% load static %}
+{% block title %}Partially Premeditated Potluck Planner{% endblock %}
+{%block logo%}Upcoming Potlucks{%endblock%}
+{%block content%}
+<br>
+<div class="about">
+
+</div>
+<div class="container">
+
+    {% if upcomingevents %}
+    {% for potluck in upcomingevents %}
+
+      <a href ="/events/{{ potluck.id }}/">
+        <h3>{{ potluck.theme }} - {{ potluck.event_date|date:'m.d.y'}}</h3>
+      </a>
+
+    {% endfor %}
+    {% else%}
+    <p> sorry no upcoming potlucks </p>
+    {% endif %}
+
+</div>
+{%endblock%}

@@ -1,0 +1,22 @@
+{%extends "events/base.html"%}
+{% load static %}
+{% block title %}Partially Premeditated Potluck Planner{% endblock %}
+{%block logo%}Partially Premeditated Potluck Planner{%endblock%}
+{%block content%}
+<br>
+<div class="about">
+    <p>Hello, this planner is here to help coordinate future potlucks events and maintain an archive of those event ideas. </p>
+    <p> If you would like to host an event contact Greg to be provided with login credentials for our administration page.</p>
+</div>
+<div class="container">
+
+    {% for potluck in potlucks %}
+
+      <a href ="/events/{{ potluck.id }}/">
+        <h3>{{ potluck.theme }} - {{ potluck.event_date|date:'m.d.y'}}</h3>
+      </a>
+
+    {% endfor %}
+
+</div>
+{%endblock%}
