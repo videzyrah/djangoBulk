@@ -1,5 +1,5 @@
 from django.contrib import admin
-from shareShack.models import Organization, Borrower, Item, CheckOut, Return
+from shareShack.models import Organization, Borrower, Item
 
 # Register your models here.
 class OrganizationAdmin(admin.ModelAdmin):
@@ -15,11 +15,12 @@ class BorrowerAdmin(admin.ModelAdmin):
 admin.site.register(Borrower, BorrowerAdmin)
 
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('name','writtenId', 'department',)
+    list_display = ('name','writtenId', 'department', 'due_Back')
     search_fields = ['name','writtenId', 'department', ]
 
 admin.site.register(Item, ItemAdmin)
 
+'''
 class CheckoutAdmin(admin.ModelAdmin):
     list_display = ('id','dateIssued','borrower',)
     search_fields = ['borrower','items']
@@ -31,3 +32,4 @@ class ReturnAdmin(admin.ModelAdmin):
     search_fields = ['borrower','items']
 
 admin.site.register(Return, ReturnAdmin)
+'''

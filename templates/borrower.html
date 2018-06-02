@@ -9,5 +9,13 @@
     <p>Card Number: {{ borrower.cardnumber }}</p>
     <p>Joined: {{ borrower.dateJoined }}</p>
     <p>Organization: {{ borrower.memberOf }}</p>
+    <p>Checked Out Items:</p>
+    {% for item in borrower.item_set.all %}
+    <a href ="{% url 'item' item.id %}">
+      <h3>{{ item.name }} - {{ item.writtenId}}</h3>
+    </a>
+    <p>Due Back: {{ item.due_Back }}</p>
+    {% endfor %}
+
 </div>
 {%endblock%}

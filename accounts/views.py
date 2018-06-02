@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, EditProfileForm
 
 
 # Create your views here.

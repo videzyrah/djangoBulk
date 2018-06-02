@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView, UpdateView
 from shareShack.forms import DonationForm, CheckOutForm
-from shareShack.models import Organization, Borrower, Item, CheckOut, Return
+from shareShack.models import Organization, Borrower, Item
 import datetime
 
 # Create your views here.
@@ -78,6 +78,8 @@ class AddDonation(TemplateView):
                 department = form.cleaned_data.get('department'),
                 writtenId = form.cleaned_data.get('writtenId'),
                 name = form.cleaned_data.get('name'),
+                condition = form.cleaned_data.get('condition'),
+                donor = form.cleaned_data.get('donor'),
                 date_Added = form.cleaned_data.get('date_Added')
             )
             # return HttpResponseRedirect("/shareShack/items")

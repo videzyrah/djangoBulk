@@ -1,5 +1,5 @@
 from django import forms
-from shareShack.models import Item, CheckOut
+from shareShack.models import Item
 
 class DateInput(forms.DateInput):
     input_type = 'date'
@@ -7,7 +7,7 @@ class DateInput(forms.DateInput):
 class DonationForm(forms.ModelForm):
     class Meta:
         model = Item
-        fields = ['department', 'writtenId', 'name', 'donor', 'date_Added',
+        fields = ['department', 'writtenId', 'name', 'donor',
         'condition' ]
         widgets = {
             'date_Added': DateInput()
