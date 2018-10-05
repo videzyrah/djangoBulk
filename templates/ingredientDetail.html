@@ -1,0 +1,11 @@
+{% load static %}
+
+{%block content%}
+<div class="container">
+
+  <h1>{{ ingredient.name }} </h1>
+  <p>${{ ingredient.market_Unit_Price }} per {{ingredient.market_Package_Type}}</p>
+  <p>${{ ingredient.iup }} for {{ingredient.market_Unit_To_Recipe_Unit_Conversion_Type}}</p>
+
+
+{%endblock%}

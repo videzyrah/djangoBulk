@@ -12,7 +12,8 @@ def potlucks(request):
     return render(request, 'events/potlucks.html', { 'potlucks': potlucks })
 
 def past(request):
-    hostQset = Host.objects.all().order_by('name')
+    #Uppercase vs. lowercase screws up alphabetical order_by
+    hostQset = Host.objects.all().order_by('-name')
     context = { 'hosts': hostQset }
     return render(request, 'events/pastevents.html', { 'hosts': hostQset })
 

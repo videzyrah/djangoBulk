@@ -1,25 +1,28 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-class Ingredient(models.Model):
-    name = models.CharField(max_length=200, unique=True)
-    market_Unit_Price = models.DecimalField(max_digits=5, decimal_places=3)
-    market_Package_Type = models.CharField(max_length=200)
-    market_Unit_To_Recipe_Unit_Conversion_Type = models.CharField(max_length=200, unique=True)
-
-    conversion_Factor =models.DecimalField(max_digits=5, decimal_places=3)
-    retailer = models.CharField(max_length=200, unique=True)
-    updated = models.DateField()
-
-    def __str__(self):
-        return self.name
-
-
+# Classes ordered by database relationships: Children at Top---> grandParents at Bottom
 class Tool(models.Model):
     name = models.CharField(max_length=200, unique=True)
     tutorial_Link = models.URLField(null = True, blank = True)
     product_Link = models.URLField(null = True, blank = True)
+
+    def __str__(self):
+        return self.name
+
+class Ingredient(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    market_Unit_Price = models.DecimalField(max_digits=5, decimal_places=2)
+    market_Package_Type = models.CharField(max_length=200)
+    market_Unit_To_Recipe_Unit_Conversion_Type = models.CharField(max_length=200)
+    recipe_unit =  models.CharField(max_length=200)
+    conversion_Factor =models.DecimalField(max_digits=5, decimal_places=4)
+    retailer = models.CharField(max_length=200)
+    updated = models.DateField(auto_now_add=True)
+
+    #ingredient unit price
+    def iup(self):
+        return self.market_Unit_Price * self.conversion_Factor
 
     def __str__(self):
         return self.name
@@ -37,6 +40,9 @@ class Recipe(models.Model):
     lactose_Free = models.BooleanField(default=False)
     paleo = models.BooleanField(default=False)
 
+    #@staticmethod -- failed hack attempt
+    def quantitiesListConverter(self):
+        return list(map(float, self.quantities.split(",")))
 
     def __str__(self):
         return self.name
@@ -56,7 +62,7 @@ class MealPlan(models.Model):
     def __str__(self):
         return self.date
 
-
+# Replace with queryset of Mealplan - Kitchen
 class GroceryPlan(models.Model):
     date = models.DateField()
     ingredients = models.ManyToManyField(Ingredient)

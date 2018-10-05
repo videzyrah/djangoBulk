@@ -1,0 +1,17 @@
+{% load static %}
+{% block title %}Recipes Master List{% endblock %}
+
+{%block content%}
+<div class="container">
+
+    {% for recipe in object_list %}
+          <a href ="/foodCosts/recipeDetail/{{ recipe.id }}">
+            <h3>{{ recipe.name }}</h3></a>
+          <i>   INGREDIENTS </i>
+          {% for ingredient in recipe.ingredients.all %}
+          <li>{{ ingredient.name }} |  ${{ingredient.market_Unit_Price}} per {{ ingredient.market_Package_Type}}</li>
+          {% endfor %}
+    {% endfor %}
+
+</div>
+{%endblock%}

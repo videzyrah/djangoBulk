@@ -1,0 +1,20 @@
+
+{% load static %}
+
+{%block content%}
+<div class="container">
+
+  <h1>{{ recipe.name }} </h1>
+  <h2>Gross grocery cost ${{ tc }}</h2>
+  <h2>{{ count }} total ingredients </h2>
+  <h1>quantitities: {{ recipe.quantitiesListConverter }} </h1>
+  <h2>Recipe Price Per Batch ${{ recipe_price }} </h2>
+    <i>   INGREDIENTS </i>
+    {% for ingredient in recipe.ingredients.all %}
+    <li>{{ ingredient.name }} |  ${{ingredient.market_Unit_Price}} per {{ ingredient.market_Package_Type}}
+      |  ${{ ingredient.iup }} per {{ingredient.recipe_unit}}</li>
+
+    {% endfor %}
+    <p>{{recipe.instructions}}</p>
+    </div>
+{%endblock%}

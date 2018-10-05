@@ -1,0 +1,18 @@
+{% load static %}
+{% block title %}Recipes Master List{% endblock %}
+
+{%block content%}
+<div class="container">
+
+    {% for meal in object_list %}
+          <h3>{{ meal.name }}</h3>
+
+          <i>   COMPONENTS</i>
+          {% for recipe in meal.recipes.all %}
+          <li>{{ recipe.name }}</li>
+          {% endfor %}
+          
+    {% endfor %}
+
+</div>
+{%endblock%}

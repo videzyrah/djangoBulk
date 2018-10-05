@@ -1,0 +1,15 @@
+
+{% load static %}
+{% block title %}Ingredients Master List{% endblock %}
+
+{%block content%}
+<div class="container">
+    {{ avg }}
+    {% for ingredient in object_list|dictsort:"name" %}
+      <li>{{ ingredient.name }} | {{ingredient.market_Unit_Price}}
+         per {{ ingredient.market_Package_Type }} at {{ ingredient.retailer }}</li>
+        </a>
+    {% endfor %}
+
+</div>
+{%endblock%}
